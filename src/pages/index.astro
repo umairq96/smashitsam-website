@@ -86,7 +86,7 @@ import Layout from "../layouts/Layout.astro";
               rel="noopener noreferrer"
               class="w-full sm:w-auto text-center bg-[#7A1515] hover:bg-[#921919] text-white px-7 py-4 rounded-xl font-syne font-bold text-sm tracking-wider shadow-xl shadow-[#7A1515]/40 transition transform hover:-translate-y-0.5 whitespace-nowrap"
             >
-              ORDER VIA SQUARE / CASH APP
+              ORDER ONLINE
             </a>
             <a
               href="#catering"
@@ -97,10 +97,10 @@ import Layout from "../layouts/Layout.astro";
           </div>
         </div>
 
-        <!-- Right Column: Video Playlist Rotator -->
+        <!-- Right Column: Single Combined Video Reel -->
         <div class="relative flex justify-center">
           <div
-            class="relative w-full max-w-md rounded-3xl overflow-hidden shadow-2xl border border-white/10 group"
+            class="relative w-full max-w-md rounded-3xl overflow-hidden shadow-2xl border border-white/10 group bg-[#07090E]"
           >
             <div
               class="absolute inset-0 bg-gradient-to-t from-[#07090E] via-transparent to-transparent opacity-40 z-10 pointer-events-none"
@@ -109,8 +109,10 @@ import Layout from "../layouts/Layout.astro";
 
             <video
               id="hero-video"
+              src="/process.mp4"
               autoplay
               muted
+              loop
               playsinline
               class="w-full h-[420px] sm:h-[480px] object-cover object-[center_70%]"
             >
@@ -124,12 +126,7 @@ import Layout from "../layouts/Layout.astro";
                 <p class="font-syne font-bold text-white text-sm">
                   Live Flat-Top Action
                 </p>
-                <p class="text-xs text-white/60">100% Hand Cut Zabiha Halal</p>
               </div>
-              <span
-                class="px-3 py-1 bg-[#7A1515] text-white text-xs font-bold rounded-full"
-                >EST. 2024</span
-              >
             </div>
           </div>
         </div>
@@ -322,34 +319,7 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
-  // Video Rotator Setup
-  const videos = [
-    "/smashing_patty.mp4",
-    "/flipping_patty.mp4",
-    "/adding_cheese.mp4",
-    "/melting_cheese.mp4",
-    "/placing_patty.mp4",
-    "/placing_bun.mp4",
-  ];
-  let currentVideoIndex = 0;
-  const videoElement = document.getElementById(
-    "hero-video",
-  ) as HTMLVideoElement;
-
-  if (videoElement && videos.length > 0) {
-    videoElement.muted = true;
-    videoElement.src = videos[currentVideoIndex];
-    videoElement.play();
-
-    videoElement.addEventListener("ended", () => {
-      currentVideoIndex = (currentVideoIndex + 1) % videos.length;
-      videoElement.src = videos[currentVideoIndex];
-      videoElement.muted = true;
-      videoElement.play();
-    });
-  }
-
-  // Netlify Form Submission Handler (Prevents 404 Page)
+  // Netlify Form Submission Handler
   const cateringForm = document.getElementById(
     "catering-form",
   ) as HTMLFormElement;
